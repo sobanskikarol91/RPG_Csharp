@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG_C_SHARP
 {
-    class Gracz : Postac
+    class Gracz : Postac, IMenu
     {
         Ekwipunek ekwipunek = new Ekwipunek();
 
@@ -22,15 +22,15 @@ namespace RPG_C_SHARP
         }
 
         public void OtrzymujePrzedmiot(Przedmiot przedmiot) { }
-        public void menu()
+
+        public void Menu()
         {
+            Console.Clear();
             Console.WriteLine("1) Statystyki gracza");
             Console.WriteLine("2) Przegladaj ekwipunek");
             Console.WriteLine("3) Powrot");
 
-            int wybor = InputHandler.WybierzOpcje(3, 1);
-
-            switch (wybor)
+            switch (InputHandler.WybierzOpcje(3, 1))
             {
                 case 1:
                     {
@@ -40,7 +40,7 @@ namespace RPG_C_SHARP
                     }
                 case 2:
                     {
-                        ekwipunek.menu();
+                        ekwipunek.Menu();
                         break;
                     }
                 default:

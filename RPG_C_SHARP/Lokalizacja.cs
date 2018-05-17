@@ -47,7 +47,7 @@ namespace RPG_C_SHARP
             Console.WriteLine("3) Zawroc ");
 
             wybor = InputHandler.WybierzOpcje(3, 1);
-
+            Console.Clear();
             switch (wybor)
             {
                 case 1:
@@ -57,6 +57,8 @@ namespace RPG_C_SHARP
                         //znalezisko.pobierz_okno().wyswietl();
                         Console.WriteLine("Dodajesz przedmiot do ekwipunku.");
                         Console.WriteLine("Twoje odglosy, zbudzily straznika! ");
+                        InputHandler.NacisnijKlawisz();
+                        Console.Clear();
                         return MenuWyboruWalki(gracz);
                     }
                 case 2:
@@ -105,7 +107,7 @@ namespace RPG_C_SHARP
                 Console.WriteLine("Obrazenia: " + gracz.Nazwa + "  " + (sila_gracza - obrona_potwora) + " vs ");
                 Console.WriteLine(obrazenia_potwora + "  Potwor");
 
-                Console.WriteLine("Zycie: " + gracz.Nazwa + "  " + zycie_gracza + " vs ";
+                Console.WriteLine("Zycie: " + gracz.Nazwa + "  " + zycie_gracza + " vs ");
                 Console.WriteLine(zycie_potwora + "  Potwor");
 
             }
@@ -130,7 +132,7 @@ namespace RPG_C_SHARP
             {
                 case 1:
                     {
-                        Console.WriteLine("Postanowiles stanac do walki" ;
+                        Console.WriteLine("Postanowiles stanac do walki" );
                         return walka(gracz); // zwracamy rezultat walki
                     }
                 default:
@@ -139,7 +141,7 @@ namespace RPG_C_SHARP
                             return STAN.UCIECZKA;
                         else
                         {
-                            Console.WriteLine("Nie udalo Ci sie uciec, musisz stanac do walki " ;
+                            Console.WriteLine("Nie udalo Ci sie uciec, musisz stanac do walki " );
                             InputHandler.NacisnijKlawisz();
                             return walka(gracz);  // zwracamy rezultat walki
                         }

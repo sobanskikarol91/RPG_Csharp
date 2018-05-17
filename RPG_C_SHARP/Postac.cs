@@ -11,7 +11,7 @@ namespace RPG_C_SHARP
         public string Nazwa { get; }
         public Statystyki Statystyki { get; set; }
 
-        public Postac(string nazwa, Statystyki statystyki) { }
+        public Postac(string nazwa, Statystyki statystyki) { Nazwa = nazwa; Statystyki = statystyki; }
         public void Informacje()
         {
             Console.WriteLine(Nazwa);

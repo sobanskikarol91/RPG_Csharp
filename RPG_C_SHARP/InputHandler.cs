@@ -8,14 +8,31 @@ namespace RPG_C_SHARP
 {
     class InputHandler
     {
-        public static int WybierzOpcje(int max, int min=0)
+        public static int WybierzOpcje(int max, int min = 0)
         {
-            return 1;
+            int wybor=0;
+            while (true)
+            {
+            wybor = Console.ReadKey().KeyChar - 48;
+
+
+                Console.WriteLine(wybor);
+
+                if (wybor >= min && wybor <= max)
+                    break;
+                else
+                {
+                    Console.WriteLine(" Blednie wprowadzone dane");
+                    NacisnijKlawisz();
+                }
+            }
+            return wybor;
         }
 
         public static void NacisnijKlawisz()
         {
-
+            Console.WriteLine("Nacisnij klawisz aby przejsc dalej...");
+            Console.ReadKey();
         }
     }
 }

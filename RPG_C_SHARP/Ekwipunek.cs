@@ -8,9 +8,16 @@ namespace RPG_C_SHARP
 {
     class Ekwipunek : IMenu
     {
+        public Ekwipunek()
+        {
+            przedmioty = new List<Przedmiot>();
+        }
+
         public List<Przedmiot> przedmioty { get; set; }
+
         void Przegladaj()
         {
+            Console.Clear();
             Console.WriteLine("***Ekwipunek***");
 
             if (przedmioty.Count == 0)
@@ -22,10 +29,9 @@ namespace RPG_C_SHARP
                     Console.WriteLine("============");
                     Console.WriteLine(i + ")");
                     przedmioty[i].Informacja();
-                    Console.WriteLine(" ============ ");
+                    Console.WriteLine("============ ");
                 }
             }
-
         }
 
         List<Przedmiot> AktywnePrzedmioty()

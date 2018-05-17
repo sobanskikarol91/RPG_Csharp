@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace RPG_C_SHARP
 {
     public enum STAN { WYGRANA, UCIECZKA, PORAZKA };
@@ -15,23 +16,26 @@ namespace RPG_C_SHARP
         List<Lokalizacja> lokalizacje = new List<Lokalizacja>();
 
 
-
         void StworzGracza()
         {
+            Console.Clear();
             Console.WriteLine("Stworz nowa postac");
-            Console.WriteLine("Imie Twojego bohatera brzmi: ");
-            string nazwa = Console.ReadLine();
+            Console.Write("Imie Twojego bohatera brzmi: ");
+
+          string nazwa  = Console.ReadLine();
 
             Ekwipunek ekwipunek = new Ekwipunek();
 
             // dodajemy do ekwipunku miecz z odpowiednimy statysykami
-            ekwipunek.przedmioty.Add(new Przedmiot("Miecz", new new Statystyki(0, 1, 0, 0, 0)));
+            ekwipunek.przedmioty.Add(new Przedmiot("Miecz", new Statystyki(0, 1, 0, 0, 0)));
 
             // wywolujemy konstruktor gracza podajac odpowiednie parametry
-            gracz = new Gracz(nazwa, new new Statystyki(25, 3, 3, 1, 1), ekwipunek);
+            gracz = new Gracz(nazwa, new Statystyki(25, 3, 3, 1, 1), ekwipunek);
             Console.Clear();  // czyscimy ekran
 
             Console.WriteLine("Postac stworzona! Witaj " + gracz.Nazwa + "!");
+            InputHandler.NacisnijKlawisz();
+
         }
 
         void StworzLokalizacje()
@@ -75,20 +79,71 @@ namespace RPG_C_SHARP
 
             // wykorzystujemy dolaczona funkcje, posylamy maxymalna ilosc lokalizacji do wyboru, funkcja zwraca wybor gracza
             int wybor = InputHandler.WybierzOpcje(lokalizacje.Count - 1);
+            Console.Clear();
 
             STAN wynik = lokalizacje[wybor].WejdzDoLokalizacji(gracz);
-            wybierz_dzialanie_wyniku(wynik, wybor);
+            WybierzDzialanieWyniku(wynik, wybor);
         }
 
         void WybierzDzialanieWyniku(STAN wynik, int wybor) { }
 
-        void SprawdzWarunkiUkonczeniaGry() { }
+        void SprawdzWarunkiUkonczeniaGry()
+        {
+            if (lokalizacje.Count == 0)
+            {
+                Console.WriteLine("Doszedles do konca swojej podrozy udalo Ci sie pokonac wszystkich przeciwnikow oraz wladce wyspy!");
+                Environment.Exit(0);  // wyjscie z apki
+            }
+        }
         public void Menu()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.WriteLine("1) Panel bohatera");
+            Console.WriteLine("2) Udaj sie w droge");
+            Console.WriteLine("3) Wyjdz z gry");
+
+            switch (InputHandler.WybierzOpcje(3, 1))
+            {
+                case 1:
+                    gracz.Menu();
+                    break;
+                case 2:
+                    WybierzDroge();
+                    break;
+                default:
+                    Wyjscie(); // definytywnie wychodzimy z gry
+                    break;
+            }
+
+          //  Menu(); // zawsze wracamy do menu glownego, no chyba ze wybierzemy wyjscie z gry
         }
 
-        public void RozpocznijGre() { }
+        public void RozpocznijGre()
+        {
+            //  zmien_kolor_txt(ZOLTY); // kolorujemy tekst od tej pory na zolto
+            Console.WriteLine("1) Stworz nowa postac");
+            Console.WriteLine("2) Wczytaj gre");
+            Console.WriteLine("3) Wyjscie z gry");
+
+            int wybor = InputHandler.WybierzOpcje(3, 1);
+
+            switch (wybor)
+            {
+                case 1:
+                    StworzGracza();
+                    StworzLokalizacje();
+                    // ZapiszDane("zapis/");
+                    break;
+                case 2:
+                    // wczytaj_dane("zapis/");
+                    break;
+                default:
+                    Wyjscie();
+                    break;
+            }
+            Menu();
+        }
+
         void Wyjscie()
         {
 

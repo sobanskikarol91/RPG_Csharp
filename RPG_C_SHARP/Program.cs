@@ -10,8 +10,8 @@ namespace RPG_C_SHARP
     {
         static void Main(string[] args)
         {
-            Gra g;
-            Gra.RozpocznijGre();
+            Gra g = new Gra();
+            g.RozpocznijGre();
             Console.Read();
         }
     }

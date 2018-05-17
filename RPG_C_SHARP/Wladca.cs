@@ -8,6 +8,6 @@ namespace RPG_C_SHARP
 {
     class Wladca : Przeciwnik
     {
-   public  Wladca(string nazwa, Statystyki statystyki) : base(nazwa, statystyki) { }
+        public Wladca(string nazwa, Statystyki statystyki) : base(nazwa, statystyki) { }
     }
 }
