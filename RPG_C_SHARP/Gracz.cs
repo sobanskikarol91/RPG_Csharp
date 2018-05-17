@@ -9,7 +9,7 @@ namespace RPG_C_SHARP
     class Gracz : Postac
     {
         Ekwipunek ekwipunek = new Ekwipunek();
-        Gracz(string nazwa, Statystyki statystyki, Ekwipunek ekwipunek) : base(nazwa, statystyki)
+       public Gracz(string nazwa, Statystyki statystyki, Ekwipunek ekwipunek) : base(nazwa, statystyki)
         {
             this.statystyki = statystyki;
             this.ekwipunek = ekwipunek;

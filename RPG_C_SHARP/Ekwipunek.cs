@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG_C_SHARP
 {
-    class Ekwipunek
+    class Ekwipunek : IMenu
     {
         public List<Przedmiot> przedmioty { get; set; }
         void Przegladaj()
@@ -47,9 +47,48 @@ namespace RPG_C_SHARP
             List<Przedmiot> aktywnePrzedmioty = AktywnePrzedmioty();
 
             foreach (Przedmiot przedmiot in aktywnePrzedmioty)
-            {
                 suma += przedmiot.Statystyki;
+
+            return suma;
+        }
+
+        public void Menu()
+        {
+            Przegladaj();
+
+            Console.WriteLine(przedmioty.Count + ") Exit");
+            Console.WriteLine("Wybierz numer przedmiotu");
+
+            int wyborPrzedmiotu = InputHandler.WybierzOpcje(przedmioty.Count);
+
+            if (wyborPrzedmiotu == przedmioty.Count) return;
+            else
+            {
+                Console.WriteLine("Co chcesz zrobic?");
+                Console.WriteLine("1) Zaloz przedmiot");
+                Console.WriteLine("2) Zdejmij przedmiot");
+                Console.WriteLine("3 Zamknij Ekwipunek");
+
+                switch (InputHandler.WybierzOpcje(3))
+                {
+                    case 1:
+                        {
+                            przedmioty[wyborPrzedmiotu].Wyposazony = true;
+                            Console.WriteLine("Przedmiot zalozony!");
+                            break;
+                        }
+                    case 2:
+                        {
+                            przedmioty[wyborPrzedmiotu].Wyposazony = false;
+                            Console.WriteLine("Przedmiot zdjety!");
+                            break;
+                        }
+                    default:
+                        return;
+                }
             }
+            InputHandler.NacisnijKlawisz();
+            Menu();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace RPG_C_SHARP
 {
     class InputHandler
     {
-        public static int WybierzOpcje(int max, int min)
+        public static int WybierzOpcje(int max, int min=0)
         {
             return 1;
         }

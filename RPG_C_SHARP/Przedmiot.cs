@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace RPG_C_SHARP
 {
-    class Przedmiot
+    class Przedmiot : IPlik
     {
         string nazwa;
         public bool Wyposazony { get; set; }
         public Statystyki Statystyki { get; }
         //Okno okno;
 
-        Przedmiot(string nazwa, Statystyki statystyki)
+        public Przedmiot(string nazwa, Statystyki statystyki)
         {
             this.nazwa = nazwa;
             Statystyki = statystyki;
@@ -21,7 +21,20 @@ namespace RPG_C_SHARP
 
         public void Informacja()
         {
+            Console.WriteLine(nazwa + "  ");
 
+            if (Wyposazony) Console.WriteLine("Wyposazony!");
+            else Console.WriteLine("Nie Wyposazony");
+        }
+
+        public void WczytajDane()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ZapiszDane()
+        {
+            throw new NotImplementedException();
         }
     }
 }

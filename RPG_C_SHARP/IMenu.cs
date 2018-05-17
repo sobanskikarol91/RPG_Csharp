@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RPG_C_SHARP
 {
-    class RPG
+    interface IMenu
     {
+        void Menu();
     }
 }

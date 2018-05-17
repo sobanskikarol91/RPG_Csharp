@@ -10,9 +10,8 @@ namespace RPG_C_SHARP
     {
         static void Main(string[] args)
         {
-            Statystyki s = new Statystyki(2,2,2,2,2);
-            s.Informacja();
-
+            Gra g;
+            Gra.RozpocznijGre();
             Console.Read();
         }
     }

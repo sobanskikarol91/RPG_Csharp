@@ -8,7 +8,7 @@ namespace RPG_C_SHARP
 {
     abstract class Postac
     {
-        protected string nazwa { get; }
+        public string Nazwa { get; }
         protected Statystyki statystyki { get; set; }
 
         public Postac(string nazwa, Statystyki statystyki) { }
