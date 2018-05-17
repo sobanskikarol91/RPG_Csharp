@@ -12,8 +12,17 @@ namespace RPG_C_SHARP
         protected Statystyki statystyki { get; set; }
 
         public Postac(string nazwa, Statystyki statystyki) { }
+        public void Informacje()
+        {
+            Console.WriteLine(nazwa);
+            statystyki.Informacja();
+        }
         protected abstract int Atak();
-        void Informacje() { }
-        void ModyfikatorObrazen() { }
+
+        protected int ModyfikatorObrazen()
+        {
+            Kostka kostka = new Kostka(1, 3);
+            return kostka.Losuj();
+        }
     }
 }

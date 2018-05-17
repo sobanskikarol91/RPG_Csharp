@@ -45,6 +45,8 @@
     <Compile Include="Bandyta.cs" />
     <Compile Include="Ekwipunek.cs" />
     <Compile Include="Gracz.cs" />
+    <Compile Include="InputHandler.cs" />
+    <Compile Include="Interface1.cs" />
     <Compile Include="Kostka.cs" />
     <Compile Include="Lokalizacja.cs" />
     <Compile Include="Postac.cs" />

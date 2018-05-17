@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace RPG_C_SHARP
 {
-    class Program
+    class InputHandler
     {
-        static void Main(string[] args)
+        public static int WybierzOpcje(int max, int min)
         {
-            Statystyki s = new Statystyki(2,2,2,2,2);
-            s.Informacja();
+            return 1;
+        }
 
-            Console.Read();
+        public static void NacisnijKlawisz()
+        {
+
         }
     }
 }

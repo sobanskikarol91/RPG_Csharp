@@ -9,8 +9,8 @@ namespace RPG_C_SHARP
     class Kostka
     {
         private int min, max;
-        Kostka(int min, int max) { this.min = min; this.max = max; }
-        int Losuj()
+        public Kostka(int min, int max) { this.min = min; this.max = max; }
+        public int Losuj()
         {
             Random random = new Random();
             return random.Next(min, max);
