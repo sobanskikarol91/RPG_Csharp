@@ -47,7 +47,7 @@ namespace RPG_C_SHARP
             return aktywne;
         }
 
-        Statystyki ObliczBonusyPrzedmiotow()
+       public Statystyki ObliczBonusyPrzedmiotow()
         {
             Statystyki suma = new Statystyki();
             List<Przedmiot> aktywnePrzedmioty = AktywnePrzedmioty();

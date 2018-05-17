@@ -12,7 +12,7 @@ namespace RPG_C_SHARP
 
         public override int Atak()
         {
-            throw new NotImplementedException();
+            return Statystyki.Sila + ModyfikatorObrazen();
         }
     }
 }

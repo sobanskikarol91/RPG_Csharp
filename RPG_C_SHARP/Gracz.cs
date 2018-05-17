@@ -18,7 +18,7 @@ namespace RPG_C_SHARP
 
         public override int Atak()
         {
-            return 1;
+            return Statystyki.Sila + ModyfikatorObrazen() + ekwipunek.ObliczBonusyPrzedmiotow().Sila;
         }
 
         public void OtrzymujePrzedmiot(Przedmiot przedmiot) { }
