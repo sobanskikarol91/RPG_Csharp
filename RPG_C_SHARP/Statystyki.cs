@@ -8,11 +8,11 @@ namespace RPG_C_SHARP
 {
     class Statystyki : IPlik
     {
-        public int Zycie { get; }
-        public int Sila { get; }
-        public int Zrecznosc { get; }
-        public int Obrona { get; }
-        public int Poziom { get; }
+        public int Zycie { get; set; }
+        public int Sila { get; set; }
+        public int Zrecznosc { get; set; }
+        public int Obrona { get; set; }
+        public int Poziom { get; set; }
 
         public Statystyki() { }
         public Statystyki(int zycie, int sila, int zrecznosc, int obrona, int poziom)

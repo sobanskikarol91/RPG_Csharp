@@ -68,7 +68,7 @@ namespace RPG_C_SHARP
             }
         }
 
-        STAN walka(Gracz gracz)
+        STAN Walka(Gracz gracz)
         {
             //przeciwnik.pobierz_okno().wyswietl();
 
@@ -104,10 +104,10 @@ namespace RPG_C_SHARP
                 zycie_potwora -= obrazenia_gracza;
                 zycie_gracza -= obrazenia_gracza;
 
-                Console.WriteLine("Obrazenia: " + gracz.Nazwa + "  " + (sila_gracza - obrona_potwora) + " vs ");
+                Console.Write("Obrazenia: " + gracz.Nazwa + "  " + (sila_gracza - obrona_potwora) + " vs ");
                 Console.WriteLine(obrazenia_potwora + "  Potwor");
 
-                Console.WriteLine("Zycie: " + gracz.Nazwa + "  " + zycie_gracza + " vs ");
+                Console.Write("Zycie: " + gracz.Nazwa + "  " + zycie_gracza + " vs ");
                 Console.WriteLine(zycie_potwora + "  Potwor");
 
             }
@@ -133,7 +133,7 @@ namespace RPG_C_SHARP
                 case 1:
                     {
                         Console.WriteLine("Postanowiles stanac do walki" );
-                        return walka(gracz); // zwracamy rezultat walki
+                        return Walka(gracz); // zwracamy rezultat walki
                     }
                 default:
                     {
@@ -143,7 +143,7 @@ namespace RPG_C_SHARP
                         {
                             Console.WriteLine("Nie udalo Ci sie uciec, musisz stanac do walki " );
                             InputHandler.NacisnijKlawisz();
-                            return walka(gracz);  // zwracamy rezultat walki
+                            return Walka(gracz);  // zwracamy rezultat walki
                         }
                     }
             }

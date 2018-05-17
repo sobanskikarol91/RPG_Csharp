@@ -85,7 +85,39 @@ namespace RPG_C_SHARP
             WybierzDzialanieWyniku(wynik, wybor);
         }
 
-        void WybierzDzialanieWyniku(STAN wynik, int wybor) { }
+        void WybierzDzialanieWyniku(STAN wynik, int wybor)
+        {
+            switch (wynik)
+            {
+                case STAN.WYGRANA:
+                    {
+                        //koloruj_txt("(Wygrana) Zabijalem juz za mniej!", ZIELONY);
+
+                        InputHandler.NacisnijKlawisz();
+                        // zdobylismy ta lokalizacje juz, wiec usuwamy ja z listy aby wiecej nie pokazywala nam sie
+                        // przy wyborze sciezki
+                        lokalizacje.RemoveAt(wybor);
+
+                        // zwiekszamy poziom gracza po wygranej walce
+                        gracz.ZwiekszPoziom();
+                        zapisz_dane("zapis/");  // automatyczny zapis
+                        sprawdz_warunki_ukonczenia_gry();
+                        break;
+                    }
+                case UCIECZKA:
+                    {
+                        cout << "Udalo Ci sie bezpiecznie zawrocic" << endl;
+                        nacisnij_klawisz();
+                        break;
+                    }
+                case PORAZKA:
+                    koloruj_txt("(Przegrana) Mniam mniam, powiedzial potwor jedzacy Twoje zwloki", CZERWONY);
+                    wyjscie();
+                default:
+                    break;
+            }
+            menu_glowne();
+        }
 
         void SprawdzWarunkiUkonczeniaGry()
         {

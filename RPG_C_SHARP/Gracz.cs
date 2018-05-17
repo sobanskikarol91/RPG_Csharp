@@ -10,10 +10,25 @@ namespace RPG_C_SHARP
     {
         Ekwipunek ekwipunek = new Ekwipunek();
 
-        public Gracz(string nazwa, Statystyki statystyki, Ekwipunek ekwipunek) : base(nazwa, statystyki)
+        public Gracz(string nazwa, Statystyki Statystyki, Ekwipunek ekwipunek) : base(nazwa, Statystyki)
         {
-            this.Statystyki = statystyki;
+            this.Statystyki = Statystyki;
             this.ekwipunek = ekwipunek;
+        }
+
+        void zwieksz_poziom(int sila, int zrecznosc, int zycie)
+        {
+           // zmien_kolor_txt(ZIELONY);
+            Console.WriteLine( "********************************************" );
+            Console.WriteLine( "NOWY POZIOM!" );
+            Console.WriteLine( "sila  +" + sila + "   zrecznosc  +" + zrecznosc + "   zycie  +" + zycie );
+            Console.WriteLine( "********************************************" );
+            // zmien_kolor_txt(ZOLTY);
+
+            Statystyki.Zrecznosc += zrecznosc;
+            Statystyki.Sila += sila;
+            Statystyki.Zycie += zycie;
+            Statystyki.Poziom++;
         }
 
         public override int Atak()
@@ -30,8 +45,12 @@ namespace RPG_C_SHARP
             Console.WriteLine("2) Przegladaj ekwipunek");
             Console.WriteLine("3) Powrot");
 
-            switch (InputHandler.WybierzOpcje(3, 1))
+            int wybor = InputHandler.WybierzOpcje(3, 1);
+
+            Console.Clear();
+            switch (wybor)
             {
+
                 case 1:
                     {
                         Informacje();
