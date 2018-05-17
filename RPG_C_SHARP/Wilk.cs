@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RPG_C_SHARP
 {
-    class Wilk
+    class Wilk : Przeciwnik
     {
+        public Wilk(string nazwa, Statystyki statystyki) : base(nazwa, statystyki) { }
     }
 }

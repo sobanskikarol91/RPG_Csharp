@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RPG_C_SHARP
 {
-    class Bandyta
+    class Bandyta : Przeciwnik
     {
+        public Bandyta(string nazwa, Statystyki statystyki) : base(nazwa, statystyki) { }
     }
 }

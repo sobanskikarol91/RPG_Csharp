@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace RPG_C_SHARP
 {
-    class Przeciwnik
+    abstract class Przeciwnik : Postac
     {
+       public Przeciwnik(string nazwa, Statystyki statystyki) : base(nazwa, statystyki) { }
 
+        protected override int Atak()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

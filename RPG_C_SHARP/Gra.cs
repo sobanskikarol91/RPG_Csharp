@@ -36,7 +36,7 @@ namespace RPG_C_SHARP
         {
             lokalizacje.Add(new Lokalizacja("Krypta",
         "Na samym srodku sciezki, dostrzegasz schody prowadzace w dol. Wyczuwasz potezna, mroczna, aure bijaca z czelusci tej sciezki. Krzewy i drzewa zdaja sie byc obumarle, a w zasiegu wzroku gesto scieli sie truchlo martwych zwierzat i rozsypane kosci",
-        Szkielet("Szkielet", new Statystyki(10, 4, 3, 0, 5)),
+        new Szkielet("Szkielet", new Statystyki(10, 4, 3, 0, 5)),
         new Przedmiot("Helm", new Statystyki(0, 0, 0, 1, 0))));
 
             lokalizacje.Add(new Lokalizacja("Las",
