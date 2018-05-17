@@ -8,6 +8,6 @@ namespace RPG_C_SHARP
 {
     class Zbrojny : Przeciwnik
     {
-        Zbrojny(string nazwa, Statystyki statystyki) : base(nazwa, statystyki) { }
+       public Zbrojny(string nazwa, Statystyki statystyki) : base(nazwa, statystyki) { }
     }
 }

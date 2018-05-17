@@ -10,7 +10,7 @@ namespace RPG_C_SHARP
     {
        public Przeciwnik(string nazwa, Statystyki statystyki) : base(nazwa, statystyki) { }
 
-        protected override int Atak()
+        public override int Atak()
         {
             throw new NotImplementedException();
         }

@@ -9,18 +9,20 @@ namespace RPG_C_SHARP
     class Gracz : Postac
     {
         Ekwipunek ekwipunek = new Ekwipunek();
-       public Gracz(string nazwa, Statystyki statystyki, Ekwipunek ekwipunek) : base(nazwa, statystyki)
+
+        public Gracz(string nazwa, Statystyki statystyki, Ekwipunek ekwipunek) : base(nazwa, statystyki)
         {
-            this.statystyki = statystyki;
+            this.Statystyki = statystyki;
             this.ekwipunek = ekwipunek;
         }
 
-        protected override int Atak()
+        public override int Atak()
         {
             return 1;
         }
 
-      public void menu()
+        public void OtrzymujePrzedmiot(Przedmiot przedmiot) { }
+        public void menu()
         {
             Console.WriteLine("1) Statystyki gracza");
             Console.WriteLine("2) Przegladaj ekwipunek");

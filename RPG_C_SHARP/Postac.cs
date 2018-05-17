@@ -9,15 +9,15 @@ namespace RPG_C_SHARP
     abstract class Postac
     {
         public string Nazwa { get; }
-        protected Statystyki statystyki { get; set; }
+        public Statystyki Statystyki { get; set; }
 
         public Postac(string nazwa, Statystyki statystyki) { }
         public void Informacje()
         {
-            Console.WriteLine(nazwa);
-            statystyki.Informacja();
+            Console.WriteLine(Nazwa);
+            Statystyki.Informacja();
         }
-        protected abstract int Atak();
+        public abstract int Atak();
 
         protected int ModyfikatorObrazen()
         {

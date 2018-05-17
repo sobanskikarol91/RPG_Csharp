@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace RPG_C_SHARP
 {
+    public enum STAN { WYGRANA, UCIECZKA, PORAZKA };
+
     class Gra : IMenu, IPlik
     {
         Gracz gracz;
         // spis wszystkich lokalizacji w grze
         List<Lokalizacja> lokalizacje = new List<Lokalizacja>();
 
-        public enum STAN { WYGRANA, UCIECZKA, PORAZKA };
+
 
         void StworzGracza()
         {
@@ -59,7 +61,25 @@ namespace RPG_C_SHARP
               new Wladca("Wladca", new Statystyki(10, 8, 5, 3, 6)),
               new Przedmiot("Kamien-teleportacyjny", new Statystyki(0, 0, 0, 0, 0))));
         }
-        void WybierzDroge() { }
+
+        void WybierzDroge()
+        {
+            for (int i = 0; i < lokalizacje.Count; i++)
+            {
+                Console.WriteLine(i + ") ");
+                lokalizacje[i].Informacja();
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("Dotarles do rozwidlenia " + lokalizacje.Count + " sciezek, gdzie tym razem poprowadzi Cie przeznaczenie? ");
+
+            // wykorzystujemy dolaczona funkcje, posylamy maxymalna ilosc lokalizacji do wyboru, funkcja zwraca wybor gracza
+            int wybor = InputHandler.WybierzOpcje(lokalizacje.Count - 1);
+
+            STAN wynik = lokalizacje[wybor].WejdzDoLokalizacji(gracz);
+            wybierz_dzialanie_wyniku(wynik, wybor);
+        }
+
         void WybierzDzialanieWyniku(STAN wynik, int wybor) { }
 
         void SprawdzWarunkiUkonczeniaGry() { }

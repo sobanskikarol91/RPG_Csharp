@@ -8,19 +8,23 @@ namespace RPG_C_SHARP
 {
     class Statystyki : IPlik
     {
-        int zycie, sila, zrecznosc, obrona, poziom;
+        public int Zycie { get; }
+        public int Sila { get; }
+        public int Zrecznosc { get; }
+        public int Obrona { get; }
+        public int Poziom { get; }
 
         public Statystyki() { }
         public Statystyki(int zycie, int sila, int zrecznosc, int obrona, int poziom)
-        { this.zycie = zycie; this.sila = sila; this.zrecznosc = zrecznosc; this.obrona = obrona; this.poziom = poziom; }
+        { Zycie = zycie; Sila = sila; Zrecznosc = zrecznosc; Obrona = obrona; Poziom = poziom; }
 
         public void Informacja()
         {
-            Console.WriteLine("Poziom: " + poziom);
-            Console.WriteLine("Hp: " + zycie);
-            Console.WriteLine("Sila: " + sila);
-            Console.WriteLine("Obrona: " + obrona);
-            Console.WriteLine("Zrecznosc: " + zrecznosc);
+            Console.WriteLine("Poziom: " + Poziom);
+            Console.WriteLine("Hp: " + Zycie);
+            Console.WriteLine("Sila: " + Sila);
+            Console.WriteLine("Obrona: " + Obrona);
+            Console.WriteLine("Zrecznosc: " + Zrecznosc);
         }
 
         public void WczytajDane()
@@ -35,7 +39,7 @@ namespace RPG_C_SHARP
 
         public static Statystyki operator +(Statystyki a, Statystyki b)
         {
-            return new Statystyki(a.zycie + b.zycie, a.sila + b.sila, a.zrecznosc + b.zrecznosc, a.obrona + b.obrona, 0); // 0 bo poziomow nie dodajemy
+            return new Statystyki(a.Zycie + b.Zycie, a.Sila + b.Sila, a.Zrecznosc + b.Zrecznosc, a.Obrona + b.Obrona, 0); // 0 bo poziomow nie dodajemy
         }
     }
 }
