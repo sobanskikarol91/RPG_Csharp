@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG_C_SHARP
 {
+    [Serializable]
     abstract class Przeciwnik : Postac
     {
        public Przeciwnik(string nazwa, Statystyki statystyki) : base(nazwa, statystyki) { }

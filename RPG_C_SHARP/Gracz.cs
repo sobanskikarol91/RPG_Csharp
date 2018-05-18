@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG_C_SHARP
 {
+    [Serializable]
     class Gracz : Postac, IMenu
     {
         Ekwipunek ekwipunek = new Ekwipunek();

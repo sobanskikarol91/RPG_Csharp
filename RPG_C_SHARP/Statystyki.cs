@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RPG_C_SHARP
 {
-    class Statystyki : IPlik
+    [Serializable]  // pozwala na zapis danych klasy do pliku
+    class Statystyki
     {
         public int Zycie { get; set; }
         public int Sila { get; set; }
@@ -25,16 +26,6 @@ namespace RPG_C_SHARP
             Console.WriteLine("Sila: " + Sila);
             Console.WriteLine("Obrona: " + Obrona);
             Console.WriteLine("Zrecznosc: " + Zrecznosc);
-        }
-
-        public void WczytajDane()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ZapiszDane()
-        {
-            throw new NotImplementedException();
         }
 
         public static Statystyki operator +(Statystyki a, Statystyki b)

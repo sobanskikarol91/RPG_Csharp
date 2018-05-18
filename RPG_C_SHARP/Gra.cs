@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace RPG_C_SHARP
 {
     public enum STAN { WYGRANA, UCIECZKA, PORAZKA };
 
-    class Gra : IMenu, IPlik
+
+    class Gra : IMenu
     {
         Gracz gracz;
         // spis wszystkich lokalizacji w grze
         List<Lokalizacja> lokalizacje = new List<Lokalizacja>();
-
 
         void StworzGracza()
         {
@@ -22,7 +23,7 @@ namespace RPG_C_SHARP
             Console.WriteLine("Stworz nowa postac");
             Console.Write("Imie Twojego bohatera brzmi: ");
 
-          string nazwa  = Console.ReadLine();
+            string nazwa = Console.ReadLine();
 
             Ekwipunek ekwipunek = new Ekwipunek();
 
@@ -30,7 +31,7 @@ namespace RPG_C_SHARP
             ekwipunek.przedmioty.Add(new Przedmiot("Miecz", new Statystyki(0, 1, 0, 0, 0)));
 
             // wywolujemy konstruktor gracza podajac odpowiednie parametry
-            gracz = new Gracz(nazwa, new Statystyki(25, 3, 3, 1, 1), ekwipunek);
+            gracz = new Gracz(nazwa, new Statystyki(30, 3, 3, 1, 1), ekwipunek);
             Console.Clear();  // czyscimy ekran
 
             Console.WriteLine("Postac stworzona! Witaj " + gracz.Nazwa + "!");
@@ -100,13 +101,13 @@ namespace RPG_C_SHARP
 
                         // zwiekszamy poziom gracza po wygranej walce
                         gracz.ZwiekszPoziom();
-                        //zapisz_dane("zapis/");  // automatyczny zapis
+                        ZapiszDane(); // automatyczny zapis
                         SprawdzWarunkiUkonczeniaGry();
                         break;
                     }
                 case STAN.UCIECZKA:
                     {
-                        Console.WriteLine("Udalo Ci sie bezpiecznie zawrocic" );
+                        Console.WriteLine("Udalo Ci sie bezpiecznie zawrocic");
                         InputHandler.NacisnijKlawisz();
                         break;
                     }
@@ -167,10 +168,10 @@ namespace RPG_C_SHARP
                 case 1:
                     StworzGracza();
                     StworzLokalizacje();
-                    // ZapiszDane("zapis/");
+                    ZapiszDane();
                     break;
                 case 2:
-                    // wczytaj_dane("zapis/");
+                    WczytajDane();
                     break;
                 default:
                     Wyjscie();
@@ -187,12 +188,40 @@ namespace RPG_C_SHARP
 
         public void WczytajDane()
         {
-            throw new NotImplementedException();
+            //  otwarcie strumienia 
+            FileStream strumienDanych = new FileStream("C:\\Zapisy_RPG\\gra.txt", FileMode.Open);
+
+            // deserializacja 
+            BinaryFormatter formatter = new BinaryFormatter();
+            gracz = (Gracz)formatter.Deserialize(strumienDanych);
+            lokalizacje = (List<Lokalizacja>)formatter.Deserialize(strumienDanych);
+            strumienDanych.Close();
+
+            Console.WriteLine("Wczytano poprawnie dane!");
+            InputHandler.NacisnijKlawisz();
         }
 
         public void ZapiszDane()
         {
-            throw new NotImplementedException();
+            // tworzymy folder
+            if (!Directory.Exists("C:\\Zapisy_RPG"))
+                Directory.CreateDirectory("C:\\Zapisy_RPG");
+
+            FileStream strumienDanych;
+
+            // utworzenie pliku, który będzie zawierał strumienie danych
+            strumienDanych = new FileStream("C:\\Zapisy_RPG\\gra.txt",
+                FileMode.Create);
+
+            BinaryFormatter formatter = new BinaryFormatter();
+            // próba serializacji
+            formatter.Serialize(strumienDanych, gracz);
+            formatter.Serialize(strumienDanych, lokalizacje);
+            // zamknięcie strumienia
+            strumienDanych.Close();
+
+            Console.WriteLine("Zapisano poprawnie dane!");
+            InputHandler.NacisnijKlawisz();
         }
     }
 }

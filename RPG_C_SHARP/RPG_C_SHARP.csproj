@@ -48,7 +48,6 @@
     <Compile Include="Gracz.cs" />
     <Compile Include="IMenu.cs" />
     <Compile Include="InputHandler.cs" />
-    <Compile Include="IPlik.cs" />
     <Compile Include="Kostka.cs" />
     <Compile Include="Lokalizacja.cs" />
     <Compile Include="Postac.cs" />
