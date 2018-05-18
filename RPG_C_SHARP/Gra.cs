@@ -91,7 +91,7 @@ namespace RPG_C_SHARP
             {
                 case STAN.WYGRANA:
                     {
-                        //koloruj_txt("(Wygrana) Zabijalem juz za mniej!", ZIELONY);
+                        Console.WriteLine("(Wygrana) Zabijalem juz za mniej!");
 
                         InputHandler.NacisnijKlawisz();
                         // zdobylismy ta lokalizacje juz, wiec usuwamy ja z listy aby wiecej nie pokazywala nam sie
@@ -100,23 +100,24 @@ namespace RPG_C_SHARP
 
                         // zwiekszamy poziom gracza po wygranej walce
                         gracz.ZwiekszPoziom();
-                        zapisz_dane("zapis/");  // automatyczny zapis
-                        sprawdz_warunki_ukonczenia_gry();
+                        //zapisz_dane("zapis/");  // automatyczny zapis
+                        SprawdzWarunkiUkonczeniaGry();
                         break;
                     }
-                case UCIECZKA:
+                case STAN.UCIECZKA:
                     {
-                        cout << "Udalo Ci sie bezpiecznie zawrocic" << endl;
-                        nacisnij_klawisz();
+                        Console.WriteLine("Udalo Ci sie bezpiecznie zawrocic" );
+                        InputHandler.NacisnijKlawisz();
                         break;
                     }
-                case PORAZKA:
-                    koloruj_txt("(Przegrana) Mniam mniam, powiedzial potwor jedzacy Twoje zwloki", CZERWONY);
-                    wyjscie();
+                case STAN.PORAZKA:
+                    Console.WriteLine("(Przegrana) Mniam mniam, powiedzial potwor jedzacy Twoje zwloki");
+                    Wyjscie();
+                    break;
                 default:
                     break;
             }
-            menu_glowne();
+            Menu();
         }
 
         void SprawdzWarunkiUkonczeniaGry()
@@ -124,7 +125,7 @@ namespace RPG_C_SHARP
             if (lokalizacje.Count == 0)
             {
                 Console.WriteLine("Doszedles do konca swojej podrozy udalo Ci sie pokonac wszystkich przeciwnikow oraz wladce wyspy!");
-                Environment.Exit(0);  // wyjscie z apki
+                Wyjscie();// wyjscie z apki
             }
         }
         public void Menu()
@@ -134,7 +135,9 @@ namespace RPG_C_SHARP
             Console.WriteLine("2) Udaj sie w droge");
             Console.WriteLine("3) Wyjdz z gry");
 
-            switch (InputHandler.WybierzOpcje(3, 1))
+            int wybor = InputHandler.WybierzOpcje(3, 1);
+            Console.Clear();
+            switch (wybor)
             {
                 case 1:
                     gracz.Menu();
@@ -147,7 +150,7 @@ namespace RPG_C_SHARP
                     break;
             }
 
-          //  Menu(); // zawsze wracamy do menu glownego, no chyba ze wybierzemy wyjscie z gry
+            Menu(); // zawsze wracamy do menu glownego, no chyba ze wybierzemy wyjscie z gry
         }
 
         public void RozpocznijGre()
@@ -178,7 +181,8 @@ namespace RPG_C_SHARP
 
         void Wyjscie()
         {
-
+            InputHandler.NacisnijKlawisz();
+            Environment.Exit(0);
         }
 
         public void WczytajDane()

@@ -16,14 +16,15 @@ namespace RPG_C_SHARP
             this.ekwipunek = ekwipunek;
         }
 
-        void zwieksz_poziom(int sila, int zrecznosc, int zycie)
+     public   void ZwiekszPoziom(int sila = 1, int zrecznosc = 1, int zycie = 10)
         {
-           // zmien_kolor_txt(ZIELONY);
+            Console.Clear();
             Console.WriteLine( "********************************************" );
             Console.WriteLine( "NOWY POZIOM!" );
             Console.WriteLine( "sila  +" + sila + "   zrecznosc  +" + zrecznosc + "   zycie  +" + zycie );
             Console.WriteLine( "********************************************" );
-            // zmien_kolor_txt(ZOLTY);
+
+            InputHandler.NacisnijKlawisz();
 
             Statystyki.Zrecznosc += zrecznosc;
             Statystyki.Sila += sila;

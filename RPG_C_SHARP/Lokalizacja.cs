@@ -30,10 +30,8 @@ namespace RPG_C_SHARP
 
         public Przedmiot Przeszukanie()
         {
-            Console.WriteLine("Przeszukujac lokalizacje natrafiasz na przedmiot jest to: ");
-           // zmien_kolor_txt(ZIELONY);
-            przedmiot.Informacja(); // nie chcey informacjo tym czyejst wyposazony wiec false
-           // zmien_kolor_txt(ZOLTY);
+            Console.WriteLine("Przeszukujac lokalizacje natrafiasz na przedmiot jest to: " + przedmiot.Nazwa);
+
             return przedmiot;
         }
 
@@ -58,7 +56,6 @@ namespace RPG_C_SHARP
                         Console.WriteLine("Dodajesz przedmiot do ekwipunku.");
                         Console.WriteLine("Twoje odglosy, zbudzily straznika! ");
                         InputHandler.NacisnijKlawisz();
-                        Console.Clear();
                         return MenuWyboruWalki(gracz);
                     }
                 case 2:
@@ -109,7 +106,7 @@ namespace RPG_C_SHARP
 
                 Console.Write("Zycie: " + gracz.Nazwa + "  " + zycie_gracza + " vs ");
                 Console.WriteLine(zycie_potwora + "  Potwor");
-
+                Console.WriteLine();
             }
             
             //zmien_kolor_txt(ZOLTY);
@@ -122,7 +119,7 @@ namespace RPG_C_SHARP
 
         STAN MenuWyboruWalki(Gracz gracz)
         {
-            Console.WriteLine("Na Twojej drodze staje: ");
+            Console.WriteLine("Na Twojej drodze staje: " + przeciwnik.Nazwa);
             Console.WriteLine("1) (Walka) Dobadz broni");
             Console.WriteLine("2) (Ucieczka) Wycofaj sie");
 
@@ -155,7 +152,7 @@ namespace RPG_C_SHARP
 
             // gracz jest wskaznikiem wiec na obiekt klasy Gracz, wykorzystujemy '->' aby dostac sie do pola klasy
             int zrecznosc_gracza = gracz.Statystyki.Zrecznosc;
-
+            Console.Clear();
             Console.WriteLine( "==============================================================" );
            // zmien_kolor_txt(CZERWONY);
             Console.WriteLine( "Zrecznosc potwora: " + zrecznosc_potwora );

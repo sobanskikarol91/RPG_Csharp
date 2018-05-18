@@ -10,13 +10,10 @@ namespace RPG_C_SHARP
     {
         public static int WybierzOpcje(int max, int min = 0)
         {
-            int wybor=0;
+            int wybor = 0;
             while (true)
             {
-            wybor = Console.ReadKey().KeyChar - 48;
-
-
-                Console.WriteLine(wybor);
+                wybor = Console.ReadKey().KeyChar - 48;
 
                 if (wybor >= min && wybor <= max)
                     break;
@@ -33,6 +30,7 @@ namespace RPG_C_SHARP
         {
             Console.WriteLine("Nacisnij klawisz aby przejsc dalej...");
             Console.ReadKey();
+            Console.Clear();
         }
     }
 }

@@ -70,6 +70,7 @@ namespace RPG_C_SHARP
             if (wyborPrzedmiotu == przedmioty.Count) return;
             else
             {
+                Console.Clear();
                 Console.WriteLine("Co chcesz zrobic?");
                 Console.WriteLine("1) Zaloz przedmiot");
                 Console.WriteLine("2) Zdejmij przedmiot");

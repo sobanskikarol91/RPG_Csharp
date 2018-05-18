@@ -8,20 +8,20 @@ namespace RPG_C_SHARP
 {
     class Przedmiot : IPlik
     {
-        string nazwa;
+        public string Nazwa { get; set; }
         public bool Wyposazony { get; set; }
         public Statystyki Statystyki { get; }
         //Okno okno;
 
         public Przedmiot(string nazwa, Statystyki statystyki)
         {
-            this.nazwa = nazwa;
+            Nazwa = nazwa;
             Statystyki = statystyki;
         }
 
         public void Informacja()
         {
-            Console.WriteLine(nazwa + "  ");
+            Console.WriteLine(Nazwa + "  ");
 
             if (Wyposazony) Console.WriteLine("Wyposazony!");
             else Console.WriteLine("Nie Wyposazony");
