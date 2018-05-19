@@ -86,18 +86,12 @@ namespace RPG_C_SHARP
                 int obrazenia_potwora = sila_potwory - obrona_gracza;
 
                 Console.WriteLine("==============================================================");
-                // zmien_kolor_txt(CZERWONY);
                 Console.WriteLine("Sila potwora: " + sila_potwory);
                 Console.WriteLine("Obrona potwora: " + obrona_potwora);
                 Console.WriteLine("==============================================================");
-
-                //zmien_kolor_txt(ZIELONY);
-                Console.WriteLine("Sila " + gracz.Nazwa + " " + sila_gracza);
-                Console.WriteLine("Obrona " + gracz.Nazwa + " " + obrona_gracza);
-                //zmien_kolor_txt(ZOLTY);
-
+                Console.WriteLine("Sila " + gracz.Nazwa + ": " + sila_gracza);
+                Console.WriteLine("Obrona " + gracz.Nazwa + ": " + obrona_gracza);
                 Console.WriteLine("==============================================================");
-                // zmien_kolor_txt(SELEDYNOWY);
 
                 zycie_potwora -= obrazenia_gracza;
                 zycie_gracza -= obrazenia_gracza;
@@ -108,10 +102,11 @@ namespace RPG_C_SHARP
                 Console.Write("Zycie: " + gracz.Nazwa + "  " + zycie_gracza + " vs ");
                 Console.WriteLine(zycie_potwora + "  Potwor");
                 Console.WriteLine();
+                Console.WriteLine("Nacisnij klawisz aby atakowac!");
+                Console.ReadKey();
+                Console.Clear();
             }
             
-            //zmien_kolor_txt(ZOLTY);
-
             if (zycie_potwora >= zycie_gracza)
                 return STAN.PORAZKA;
             else
@@ -155,12 +150,8 @@ namespace RPG_C_SHARP
             int zrecznosc_gracza = gracz.Statystyki.Zrecznosc;
             Console.Clear();
             Console.WriteLine( "==============================================================" );
-           // zmien_kolor_txt(CZERWONY);
             Console.WriteLine( "Zrecznosc potwora: " + zrecznosc_potwora );
-
-            //zmien_kolor_txt(ZIELONY);
             Console.WriteLine( "Zrecznosc gracza:  " + zrecznosc_gracza );
-           // zmien_kolor_txt(ZOLTY);
             Console.WriteLine( "==============================================================" );
 
             // gdy gracz ma wiecej zrecznosci zwracamy true

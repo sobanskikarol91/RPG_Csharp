@@ -21,10 +21,10 @@ namespace RPG_C_SHARP
 
         public void Informacja()
         {
-            Console.WriteLine("Poziom: " + Poziom);
-            Console.WriteLine("Hp: " + Zycie);
-            Console.WriteLine("Sila: " + Sila);
-            Console.WriteLine("Obrona: " + Obrona);
+            Console.Write("Poziom: " + Poziom + "  ");
+            Console.Write("Hp: " + Zycie + "  ");
+            Console.Write("Sila: " + Sila + "  ");
+            Console.Write("Obrona: " + Obrona + "  ");
             Console.WriteLine("Zrecznosc: " + Zrecznosc);
         }
 

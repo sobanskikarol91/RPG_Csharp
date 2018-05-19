@@ -17,7 +17,7 @@ namespace RPG_C_SHARP
             this.ekwipunek = ekwipunek;
         }
 
-        public void ZwiekszPoziom(int sila = 1, int zrecznosc = 1, int zycie = 10)
+        public void ZwiekszPoziom(int sila = 1, int zrecznosc = 1, int zycie = 2)
         {
             Console.Clear();
             Console.WriteLine("********************************************");

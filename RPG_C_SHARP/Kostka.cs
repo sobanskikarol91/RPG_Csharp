@@ -10,10 +10,13 @@ namespace RPG_C_SHARP
     {
         private int min, max;
         public Kostka(int min, int max) { this.min = min; this.max = max; }
+
         public int Losuj()
         {
-            Random random = new Random();
+            // losowanie z ziarnem
+            Random random = new Random(Guid.NewGuid().GetHashCode());
             return random.Next(min, max);
         }
     }
 }
+ 

@@ -31,7 +31,7 @@ namespace RPG_C_SHARP
             ekwipunek.przedmioty.Add(new Przedmiot("Miecz", new Statystyki(0, 1, 0, 0, 0)));
 
             // wywolujemy konstruktor gracza podajac odpowiednie parametry
-            gracz = new Gracz(nazwa, new Statystyki(30, 3, 3, 1, 1), ekwipunek);
+            gracz = new Gracz(nazwa, new Statystyki(25, 3, 3, 1, 1), ekwipunek);
             Console.Clear();  // czyscimy ekran
 
             Console.WriteLine("Postac stworzona! Witaj " + gracz.Nazwa + "!");
@@ -71,7 +71,7 @@ namespace RPG_C_SHARP
         {
             for (int i = 0; i < lokalizacje.Count; i++)
             {
-                Console.WriteLine(i + ") ");
+                Console.Write(i + ") ");
                 lokalizacje[i].Informacja();
                 Console.WriteLine();
             }

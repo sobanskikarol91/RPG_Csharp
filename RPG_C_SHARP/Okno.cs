@@ -14,24 +14,20 @@ public class Okno : System.Windows.Forms.Form
 
     public Okno(string nazwaObrazka)
     {
-        InicjalizujKomponenty();
-        SetStyle(ControlStyles.Opaque, true);
-
         // sciezka do folderu projektu i obrazka
-        obrazek = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/grafika//"+ nazwaObrazka + ".png");
+        obrazek = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/grafika//" + nazwaObrazka + ".png");
+        
+        SetStyle(ControlStyles.Opaque, true);
+        komponenty = new System.ComponentModel.Container();
+        // ustawiamy wielksoc okna zalezna od wielksoci obrazka
+        Size = new System.Drawing.Size(obrazek.Size.Width, obrazek.Size.Height);
     }
 
     protected override void OnPaint(PaintEventArgs e)
     {
+       // rysujemy obrazek
         Graphics g = e.Graphics;
-
         g.DrawImage(obrazek, ClientRectangle);
-    }
-
-    private void InicjalizujKomponenty()
-    {
-        komponenty = new System.ComponentModel.Container();
-        Size = new System.Drawing.Size(300, 300);
     }
 
     // statyczna metoda pozwala na tworzenie okna z kazdego miejsca odwolujac sie do klasy Okno
