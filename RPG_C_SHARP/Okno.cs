@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.IO;
 
+
 public class Okno : System.Windows.Forms.Form
 {
     private System.ComponentModel.Container komponenty = null;
@@ -15,13 +16,15 @@ public class Okno : System.Windows.Forms.Form
     {
         InicjalizujKomponenty();
         SetStyle(ControlStyles.Opaque, true);
+
         // sciezka do folderu projektu i obrazka
-        obrazek = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + nazwaObrazka);
+        obrazek = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "/grafika//"+ nazwaObrazka + ".png");
     }
 
     protected override void OnPaint(PaintEventArgs e)
     {
         Graphics g = e.Graphics;
+
         g.DrawImage(obrazek, ClientRectangle);
     }
 
@@ -31,6 +34,7 @@ public class Okno : System.Windows.Forms.Form
         Size = new System.Drawing.Size(300, 300);
     }
 
+    // statyczna metoda pozwala na tworzenie okna z kazdego miejsca odwolujac sie do klasy Okno
     public static void StworzOkno(string nazwaObrazka)
     {
         Application.Run(new Okno(nazwaObrazka));

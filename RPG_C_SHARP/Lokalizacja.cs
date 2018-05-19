@@ -53,7 +53,7 @@ namespace RPG_C_SHARP
                     {
                         Przedmiot znalezisko = Przeszukanie();
                         gracz.OtrzymujePrzedmiot(znalezisko);
-                        //znalezisko.pobierz_okno().wyswietl();
+                        Okno.StworzOkno(znalezisko.Nazwa); // tworzymy okno podajac nazwe obrazka, ktory ma byc wyswietlony
                         Console.WriteLine("Dodajesz przedmiot do ekwipunku.");
                         Console.WriteLine("Twoje odglosy, zbudzily straznika! ");
                         InputHandler.NacisnijKlawisz();
@@ -68,7 +68,7 @@ namespace RPG_C_SHARP
 
         STAN Walka(Gracz gracz)
         {
-            //przeciwnik.pobierz_okno().wyswietl();
+            Okno.StworzOkno(przeciwnik.Nazwa); // tworzymy okno podajac nazwe obrazka, ktory ma byc wyswietlony
 
             int zycie_potwora = przeciwnik.Statystyki.Zycie;
             int zycie_gracza = gracz.Statystyki.Zycie;

@@ -12,7 +12,6 @@ namespace RPG_C_SHARP
         public string Nazwa { get; set; }
         public bool Wyposazony { get; set; }
         public Statystyki Statystyki { get; }
-        //Okno okno;
 
         public Przedmiot(string nazwa, Statystyki statystyki)
         {
