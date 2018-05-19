@@ -28,9 +28,9 @@ namespace RPG_C_SHARP
                 for (int i = 0; i < przedmioty.Count; i++)
                 {
                     Console.WriteLine("============");
-                    Console.WriteLine(i + ")");
+                    Console.Write(i + ") ");
                     przedmioty[i].Informacja();
-                    Console.WriteLine("============ ");
+                    Console.WriteLine();
                 }
             }
         }
@@ -48,7 +48,7 @@ namespace RPG_C_SHARP
             return aktywne;
         }
 
-       public Statystyki ObliczBonusyPrzedmiotow()
+        public Statystyki ObliczBonusyPrzedmiotow()
         {
             Statystyki suma = new Statystyki();
             List<Przedmiot> aktywnePrzedmioty = AktywnePrzedmioty();
@@ -75,9 +75,11 @@ namespace RPG_C_SHARP
                 Console.WriteLine("Co chcesz zrobic?");
                 Console.WriteLine("1) Zaloz przedmiot");
                 Console.WriteLine("2) Zdejmij przedmiot");
-                Console.WriteLine("3 Zamknij Ekwipunek");
+                Console.WriteLine("3) Zamknij ekwipunek");
 
-                switch (InputHandler.WybierzOpcje(3))
+                int wybor = InputHandler.WybierzOpcje(3);
+
+                switch (wybor)
                 {
                     case 1:
                         {

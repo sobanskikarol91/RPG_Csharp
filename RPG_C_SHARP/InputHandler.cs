@@ -23,6 +23,7 @@ namespace RPG_C_SHARP
                     NacisnijKlawisz();
                 }
             }
+            Console.Clear();
             return wybor;
         }
 

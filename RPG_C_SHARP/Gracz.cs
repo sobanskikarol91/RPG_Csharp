@@ -17,13 +17,13 @@ namespace RPG_C_SHARP
             this.ekwipunek = ekwipunek;
         }
 
-     public   void ZwiekszPoziom(int sila = 1, int zrecznosc = 1, int zycie = 10)
+        public void ZwiekszPoziom(int sila = 1, int zrecznosc = 1, int zycie = 10)
         {
             Console.Clear();
-            Console.WriteLine( "********************************************" );
-            Console.WriteLine( "NOWY POZIOM!" );
-            Console.WriteLine( "sila  +" + sila + "   zrecznosc  +" + zrecznosc + "   zycie  +" + zycie );
-            Console.WriteLine( "********************************************" );
+            Console.WriteLine("********************************************");
+            Console.WriteLine("NOWY POZIOM!");
+            Console.WriteLine("sila  +" + sila + "   zrecznosc  +" + zrecznosc + "   zycie  +" + zycie);
+            Console.WriteLine("********************************************");
 
             InputHandler.NacisnijKlawisz();
 
@@ -38,7 +38,10 @@ namespace RPG_C_SHARP
             return Statystyki.Sila + ModyfikatorObrazen() + ekwipunek.ObliczBonusyPrzedmiotow().Sila;
         }
 
-        public void OtrzymujePrzedmiot(Przedmiot przedmiot) { }
+        public void OtrzymujePrzedmiot(Przedmiot przedmiot)
+        {
+            ekwipunek.przedmioty.Add(przedmiot);
+        }
 
         public void Menu()
         {

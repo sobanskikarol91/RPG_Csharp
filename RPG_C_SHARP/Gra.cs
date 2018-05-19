@@ -182,6 +182,7 @@ namespace RPG_C_SHARP
 
         void Wyjscie()
         {
+            ZapiszDane();
             InputHandler.NacisnijKlawisz();
             Environment.Exit(0);
         }
@@ -197,6 +198,7 @@ namespace RPG_C_SHARP
             lokalizacje = (List<Lokalizacja>)formatter.Deserialize(strumienDanych);
             strumienDanych.Close();
 
+            Console.Clear();
             Console.WriteLine("Wczytano poprawnie dane!");
             InputHandler.NacisnijKlawisz();
         }

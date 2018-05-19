@@ -9,7 +9,7 @@ namespace RPG_C_SHARP
     [Serializable]
     class Przedmiot
     {
-      public  string Nazwa { get; set; }
+        public string Nazwa { get; set; }
         public bool Wyposazony { get; set; }
         public Statystyki Statystyki { get; }
         //Okno okno;
@@ -26,6 +26,8 @@ namespace RPG_C_SHARP
 
             if (Wyposazony) Console.WriteLine("Wyposazony!");
             else Console.WriteLine("Nie Wyposazony");
+
+            Statystyki.Informacja();
         }
     }
 }
