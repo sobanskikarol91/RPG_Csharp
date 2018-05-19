@@ -9,7 +9,6 @@ namespace RPG_C_SHARP
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             Gra g = new Gra();

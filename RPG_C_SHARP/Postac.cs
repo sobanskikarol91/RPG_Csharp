@@ -18,6 +18,7 @@ namespace RPG_C_SHARP
             Console.WriteLine(Nazwa);
             Statystyki.Informacja();
         }
+
         public abstract int Atak();
 
         protected int ModyfikatorObrazen()
